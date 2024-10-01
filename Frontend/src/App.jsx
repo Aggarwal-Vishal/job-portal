@@ -1,9 +1,30 @@
-import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import Navbar from "./components/ui/shared/Navbar";
 
+import Login from "./components/ui/auth/Login";
+import Signup from "./components/ui/auth/Signup";
+import Home from "./components/ui/Home";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+
+  {
+    path: "/login",
+    element: <Login />,
+  },
+
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+]);
 function App() {
   return (
     <>
-      <h1 className="text-red-400">Lets build Job Portal</h1>
+      <RouterProvider router={appRouter} />
     </>
   );
 }

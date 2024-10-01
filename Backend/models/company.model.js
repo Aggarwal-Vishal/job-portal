@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
-const company = mongoose.Schema(
+const companySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -27,3 +27,5 @@ const company = mongoose.Schema(
   },
   { timestamps: true }
 );
+
+export const Company = mongoose.model("Company", companySchema);
