@@ -6,8 +6,11 @@ import { Avatar } from "@radix-ui/react-avatar";
 import { AvatarImage } from "./ui/avatar";
 import { LOGO } from "@/utils/constant";
 import { Badge } from "./ui/badge";
+import { useNavigate } from "react-router";
 
 const JobCard = () => {
+  const navigate = useNavigate();
+  const jobId = "hellovishal";
   return (
     <div className="p-5 rounded-md bg-white border border-gray-300 shadow-xl">
       <div className="flex items-center justify-between">
@@ -50,7 +53,11 @@ const JobCard = () => {
         </Badge>
       </div>
       <div className="flex items-center gap-2 mt-4 ">
-        <Button className="" variant="outline">
+        <Button
+          onClick={() => navigate(`/description/${jobId}`)}
+          className=""
+          variant="outline"
+        >
           Details
         </Button>
         <Button

@@ -30,7 +30,7 @@ const AppliedJobTable = () => {
               <TableCell>07/10/2024</TableCell>
               <TableCell>Frontend Developer</TableCell>
               <TableCell>Google</TableCell>
-              <TableCell>
+              <TableCell classname="text-right">
                 <Badge>Selected</Badge>
               </TableCell>
             </TableRow>
