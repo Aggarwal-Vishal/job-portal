@@ -11,17 +11,19 @@ import { Label } from "./ui/label";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfileDialog from "./UpdateProfileDialog";
 import { useSelector } from "react-redux";
+import useGetAppliedJobs from "@/hooks/useGetAppliedJobs";
 
 // const Skills = ["html", "css", "javascript", "ReactJs"];
 const isResume = true;
 const Profile = () => {
+  useGetAppliedJobs();
   const [open, setOpen] = useState(false);
 
   const { user } = useSelector((store) => store.auth);
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
+      <div className="max-w-3xl mx-auto  rounded-2xl my-5 p-8">
         <div className="flex justify-between">
           <div className="flex items-center gap-4">
             <Avatar className="h-24 w-24">
@@ -55,7 +57,9 @@ const Profile = () => {
           <div className="flex items-center gap-2">
             {user?.profile?.skills.length !== 0 ? (
               user?.profile?.skills.map((item, index) => (
-                <Badge key={index}>{item}</Badge>
+                <Badge className="space-x-4" key={index}>
+                  {item}
+                </Badge>
               ))
             ) : (
               <span>NA</span>

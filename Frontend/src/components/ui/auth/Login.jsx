@@ -4,7 +4,7 @@
 // /* eslint-disable no-unused-vars */
 // /* eslint-disable no-undef */
 // // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../label";
 import { Input } from "../input";
@@ -54,6 +54,11 @@ const Login = () => {
       dispatch(setLoading(false));
     }
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  });
 
   return (
     <div>
@@ -123,7 +128,7 @@ const Login = () => {
 
           <span className="text-sm">
             Dont have an account?
-            <Link to="/login" className="text-blue-600 p-2">
+            <Link to="/signup" className="text-blue-600 p-2">
               Signup
             </Link>
           </span>

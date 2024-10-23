@@ -1,9 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { Search } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./button";
+import { useDispatch } from "react-redux";
+import { setSearchedQuery } from "@/redux/jobSlice";
+import { useNavigate } from "react-router";
 
 const HeroSection = () => {
+  const [query, setQuery] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const searchJobHandler = () => {
+    dispatch(setSearchedQuery(query));
+    navigate("/browse");
+  };
   return (
     <div className="text-center">
       <span className="px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium">
@@ -20,9 +31,13 @@ const HeroSection = () => {
           <input
             type="text"
             placeholder="Find your dream Jobs"
+            onChange={(e) => setQuery(e.target.value)}
             className="outline-none border-none w-full"
           />
-          <Button className="rounded-r-full bg-[#6A38C2]">
+          <Button
+            onClick={searchJobHandler}
+            className="rounded-r-full bg-[#6A38C2]"
+          >
             <Search className="h-5 w-5" />
           </Button>
         </div>
