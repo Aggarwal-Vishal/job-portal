@@ -37,7 +37,7 @@ export const applyJob = async (req, res) => {
       job: jobId,
       applicant: userId,
     });
-    job.application.push(newApplication._id);
+    job.applications.push(newApplication._id);
 
     await job.save();
     return res.status(201).json({
