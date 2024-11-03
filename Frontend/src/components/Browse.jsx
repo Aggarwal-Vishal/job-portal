@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Navbar from "./ui/shared/Navbar";
 import JobCard from "./JobCard";
 import { useDispatch, useSelector } from "react-redux";
-import useGetAllJobs from "@/hooks/useGetAllJobs";
+import useGetAllJobs from "../hooks/useGetAllJobs";
 import { setSearchedQuery } from "@/redux/jobSlice";
 
 // const randomJobs = [1, 2, 3, 4, 5, 6];

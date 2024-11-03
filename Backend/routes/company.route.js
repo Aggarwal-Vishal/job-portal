@@ -15,7 +15,7 @@ router.route("/get").get(isAuthenticated, getCompany);
 router.route("/get/:id").get(
   isAuthenticated,
   (req, res, next) => {
-    console.log("GET/get/:id route called");
+  
     next();
   },
   getCompanyById
